@@ -216,7 +216,7 @@ header .row {
 nav {
     display: flex;
     justify-content: flex-end;
-    gap: var(--gutter-medium);
+    gap: var(--gutter-x-small);
     align-items: center;
     height: var(--nav-height);
 }
@@ -229,18 +229,18 @@ nav {
 
 @media(max-width:420px) {
     nav {
-        gap: var(--gutter-small)
+        gap: var(--gutter-xx-small)
     }
 }
 
 @media(max-width:340px) {
     nav {
-        gap: var(--gutter-x-small)
+        gap: var(--gutter-xx-small)
     }
 }
 
 nav a {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     position: relative;
     overflow-x: hidden;
     padding: 1rem;
@@ -290,11 +290,12 @@ nav a:hover::after {
     margin-top: var(--gutter-x-small);
 }
 
-@media(max-width:1145px) {
+@media(max-width:768px) {
     .work-box {
         gap: var(--gutter-small);
         flex-direction: column;
         align-items: initial;
+        padding: var(--gutter-small);
     }
 }
 
