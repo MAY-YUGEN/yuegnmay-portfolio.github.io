@@ -59,18 +59,29 @@ a {
     color: var(--white);
     text-decoration: none;
 }
-
+/*
 .btn {
     display: inline-block;
     padding: 1.2rem 4rem;
     border: 1px solid var(--pink);
     font-size: 2rem;
 }
+*/
 
-.btn-text {
+.btn {
+    margin: 0 auto;
+    background: black;
+    padding: 1.2rem 4rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.btn-text {    
     display: inline-block;
     padding: 0.8rem 0.5rem;
     border-bottom: 1px solid var(--pink);
+    
 }
 
 .btn,
@@ -78,8 +89,28 @@ a {
     position: relative;
     z-index: 1;
     overflow-x: hidden;
+    
 }
 
+.btn-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: var(--white);
+    transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+    z-index: -1;
+}
+.btn-text:hover::after {
+    right: 0;
+    background: var(--pink);
+}
+
+/*
 .btn::after,
 .btn-text::after {
     content: "";
@@ -100,6 +131,43 @@ a {
     right: 0;
     background: var(--pink);
 }
+*/
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.btn::after{    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),transparent,orange,yellow,green,blue,indigo,violet,red,orange);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation:3s spin linear infinite;
+}
+.btn::before{
+    filter: blur(10.5rem);
+    opacity: 0.5;
+}
+
+
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
+
 
 img {
     object-fit: contain;
