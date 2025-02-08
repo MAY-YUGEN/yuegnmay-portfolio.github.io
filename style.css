@@ -2,13 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    
 }
 
 html,
-body {
+c {
     font-size: 62.5%;
     scroll-behavior: smooth;
+   
 }
+
+
 
 @media (max-width:800px) {
     html {
@@ -58,6 +64,9 @@ img {
 a {
     color: var(--white);
     text-decoration: none;
+    position: relative;
+    z-index: 3;
+    
 }
 /*
 .btn {
@@ -143,7 +152,7 @@ a {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(from var(--angle),transparent,orange,yellow,green,blue,indigo,violet,red,orange);
+    background-image: conic-gradient(from var(--angle),transparent,  violet, indigo,  blue, green, yellow, orange,red);
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -423,6 +432,8 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     gap: var(--gutter-x-small);
+   
+    
 }
 
 .gh-link {
@@ -499,11 +510,14 @@ footer {
 
 .footer-social a {
     margin-right: var(--gutter-xx-small);
+    display: inline-block;
+    cursor: pointer;              
 
 }
 
 .footer-social img {
-    height: 40px;
+    width: 40px; /* Ensure images have a visible size */
+    height: auto;
 
 }
 
@@ -534,4 +548,34 @@ footer {
 
 .back-to-top img {
     height: 30px;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Ensure it's below other content but above the background */
+    
+}
+
+#particles-js {
+    
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensures it's above the background but below content */
+    pointer-events: auto; /* Allow interaction */
+}
+
+header, section, footer, .btn{
+    position: relative;
+    z-index: 1; /* Ensures content is above particles */
+}
+
+.btn, a, input, textarea {
+    pointer-events: auto; /* Make buttons, links, and inputs clickable */
 }

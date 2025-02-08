@@ -10,8 +10,11 @@ const observer = new IntersectionObserver((entries, observer) => {
         }
     });
 });
-
+particlesJS.load('particles-js', 'particles.json', function () {
+    console.log('Particles.js loaded successfully');
+});
 observer.observe(observerTarget);
+
 
 /*
 window.addEventListener("scroll", () =>{
